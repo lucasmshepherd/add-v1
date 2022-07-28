@@ -1,0 +1,133 @@
+@import "variables"
+  
+html,
+body
+  padding: 0
+  margin: 0
+  width: 100%
+  height: 100%
+
+a
+  color: inherit
+  text-decoration: none
+
+*
+  box-sizing: border-box
+
+.container
+  width: 100%
+  max-width: 1440px
+  margin-left: auto
+  margin-right: auto
+  
+main
+  height: calc(100vh - 130px)
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+
+  & > *
+    flex: 1 0 auto
+
+// theming
+
+body
+  font-family: $font_content
+  background: $color_dark url('/assets/images/anarchy-fund-background-optimized.jpg') no-repeat 50% 50%
+  background-size: cover
+  color: $color_light
+
+.monitor-effect-overlayy
+  position: fixed
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  pointer-events: none
+  background: linear-gradient(90deg, rgba(220,0,0,0.25), rgba(0,220,0,0.25), rgba(0,0,220,0.25)), linear-gradient(0deg, rgba(220,0,0,0.25), rgba(0,220,0,0.25), rgba(0,0,220,0.25))
+  background-size: 4px 2px, 4px 2px
+  box-shadow: inset 0 0 60px rgba(150,255,150,0.6)
+  opacity: 0.125
+  animation: tube-flicker 0.05s linear infinite
+@keyframes tube-flicker
+  to
+    filter: brightness(130%)
+
+li[data-current="false"] 
+  .icon-arrow
+    display: none
+
+button.switcher-item
+  background: $color_4
+  font-family: $font_scifi
+  cursor: pointer
+  &.switcher-active-item
+    background: #fff!important
+  &:hover,
+  &:active
+    background: $color_3
+
+.switcher
+  position: absolute
+  top: 6px
+  right: 10px
+
+.glitch-bg-image
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  z-index: -5
+  background: linear-gradient( to bottom,#000,#000 40%,#111 50%,#111 )
+  background-size: 100% 4px
+  animation: gradientMove 200ms ease infinite
+  filter: brightness(300%) sepia(200%) opacity(.2)
+  //mix-blend-mode: difference
+  //mix-blend-mode: darken
+
+@keyframes gradientMove
+  0%
+    background-size: 100% 4px
+  50%
+    background-size: 100% 2px
+  100%
+    background-size: 100% 4px
+
+canvas#canvas2
+  position: fixed
+  display: block
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  z-index: -11
+
+canvas#canvas3
+  position: absolute
+  display: block
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  z-index: -11
+
+#terminal
+  white-space: pre-wrap
+  line-height: 1.4
+
+#cursor
+  display: inline-block
+  height: 1.35em
+  width: 0.7em
+  vertical-align: middle
+  background-color: #fff
+
+.invisible
+  opacity: 0
