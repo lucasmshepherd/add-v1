@@ -1,2 +1,2 @@
 # add-v1
- Anarchy Development DAO.  Let Anarchy Reign!
+ Anarchist Development DAO.  Let Anarchy Reign!
