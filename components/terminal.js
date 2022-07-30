@@ -1,36 +1,61 @@
 import React from 'react';
-import { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import $ from 'jquery';
 
 //import styles from './widget.module.sass'
 
 export default class Terminal extends React.Component {
   componentDidMount () {
-    
+
     var cursor = $('#cursor');
     var terminal = $('#terminal');
-    var text = ["Anarchy Development DAO\nline secure ... booting sequence 4/4\n+++++ access granted +++++\n$> ", ""];
+    var text = ["Anarchy Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/><br/>type <a class='onclick-help'>help</a> for commands<br/>$> ", ""];
     var commandHistory = [];
     var lineY = 1;
     var index = 0;
     var historyIndex = 0;
 
+    /*$('[data-widget="terminal"]').on("mousedown", function() {
+        $('aside').addClass("open");
+    })*/
+
+    $('.close-menu').on("mousedown", function() {
+        $('aside').removeClass("open");
+    })
+
+    $('[class^="header_icon_"]').on("mousedown", function() {
+        $('aside').toggleClass("open");
+    })
+
     var commands = [
         { name: "clear", function: clearConsole },
-        { name: "start", function: owlConsole }
+        { name: "play", function: playConsole },
+        { name: "start", function: startConsole },
+        { name: "help", function: helpConsole }
     ]
+
+    $('.onclick-help').on("mousedown", function() {
+        lineY++;
+        text[lineY] = ["\nclear  Clear console text.\nplay   Play freedom video.\nstart  Start anarchist manifesto."];
+        printConsole(text);
+    });
     
-    function owlConsole() {
-        sendPrint("\nline secured\n");
-        setTimeout(sendPrint("loading fr33d0m.mp4\n"), 1000);
+    function helpConsole() {
+        lineY++;
+        text[lineY] = ["\nclear  Clear console text.\nplay   Play freedom video.\nstart  Start anarchist manifesto."];
+        printConsole(text);
+    }
+
+    function delayText() {
+        terminal.html("Helllo");
     }
     
+    function startConsole() {
+        Router.push('/manifesto');
+    }    
     
-    function sendPrint(message) {
-        lineY++;
-        text[lineY] = message;
-        printConsole(text);
+    function playConsole() {
+        Router.push('/freedom');
     }
     
     function clearConsole() {
@@ -68,7 +93,6 @@ export default class Terminal extends React.Component {
             text[lineY] = "\nsystem: command not found";
         }
         historyIndex++;
-        console.log(lineY, "processCommand");
     }
     
     function nextLine() {

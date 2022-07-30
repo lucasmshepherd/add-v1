@@ -12,7 +12,7 @@ export default function Files() {
   return (
     <>
       <div className={styles.files}>
-        <div className={styles.folder} data-connected={connected} data-video="live">
+        <div className={styles.folder} data-connected="true" data-video="live">
           <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
           <style jsx>{`
             .fthumb {
@@ -28,56 +28,7 @@ export default function Files() {
           <Link className="anchor" href="/freedom">
             <div className="fthumb"/>
           </Link>
-          <div className={styles.flabel}>fr33d0m</div>
-          </div>
-        <div className={styles.folder} data-connected={connected} data-video="preview">
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p className={styles.connect}>Connect Wallet</p>
-            <span className={styles.connect}>fr33d0m</span>
-          </div>
-        </div>
-        <div className={styles.folder}>
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p>Coming Q3 2022</p>
-            <span>r3v0lut10n</span>
-          </div>
-        </div>
-        <div className={styles.folder}>
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p>Coming Q4 2022</p>
-            <span>cha05</span>
-          </div>
-        </div>
-        <div className={styles.folder}>
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p>Coming ??? </p>
-            <span>???</span>
-          </div>
-        </div>
-        <div className={styles.folder}>
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p>Coming ??? </p>
-            <span>???</span>
-          </div>
-        </div>
-        <div className={styles.folder}>
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p>Coming ??? </p>
-            <span>???</span>
-          </div>
-        </div>
-        <div className={styles.folder}>
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p>Coming ??? </p>
-            <span>???</span>
-          </div>
+          <div className={styles.flabel}>fr33d0m.ogg</div>
         </div>
         <div className={styles.folder}>
           <Image layout="responsive" src={Icon1} priority="true" alt="folder" />

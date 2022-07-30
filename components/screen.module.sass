@@ -1,0 +1,25 @@
+@import '/styles/variables.sass'
+
+$text-color: #9F9
+$shadow: #0F0
+
+.text
+  color: $text-color
+  font-size: 3em
+  text-shadow: 1px 0px 5px $shadow, -1px 0px 2px $shadow
+  font-family: $font_mono
+  font-weight: light
+  line-height: 2em
+  padding: 0 10vw
+  position: absolute
+  z-index: -100
+  width: 100%
+  max-width: 1000px
+  top: 25vh
+  left: 50%
+  transform: translateX(-50%)
+  line-height: 1
+  text-align: center
+  filter: blur(.5px)
+  @media(max-width: 700px)
+    font-size: 2.5em

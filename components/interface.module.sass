@@ -14,8 +14,8 @@
     [data-row="primary"]
       flex: 1 0 auto
     [data-row="secondary"]
-      flex: 0 0 300px
-      max-height: 360px
+      flex: 0 0 280px
+      max-height: 280px
     .pane
       flex: 1 1 auto
     .side
@@ -52,3 +52,12 @@
   justify-content: flex-start
   align-items: stretch
   align-content: stretch
+  transition: all 0.3s
+
+  @media(max-width: 984px)
+    position: fixed
+    top: 0
+    right: -320px
+    width: 320px
+    background: $color_dark
+    height: 100%

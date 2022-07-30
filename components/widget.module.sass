@@ -15,11 +15,15 @@
     .noticet
       color: $color_3
       text-shadow: $glow_text
-  &[data-widget="source"]
-    flex: 0 0 50%
   &[data-widget="mint"]
     flex: 1 0 200px
+  &[data-widget="source"]
+    display: none
+    flex: 1 0 300px
+    min-height: 300px
   &[data-widget="social"]
+    *
+      cursor: url('/assets/images/cursor.svg'), auto
     .foot
       display: none
 
@@ -127,6 +131,14 @@
     .scroll
       padding-top: 20px
       padding-bottom: 20px
+  &[data-feed="manifesto"]
+    font-family: $font_content
+    font-size: $font_size_copy
+    .scroll
+      padding: 0
+      position: absolute
+      top: 0
+      left: 0
   &[data-feed="video"]
     .scroll
       padding: 0
@@ -181,13 +193,15 @@
 .files
   display: flex
   flex-flow: row wrap
-  justify-content: space-evenly
+  justify-content: flex-start
   align-items: stretch
   align-content: stretch
 
   & > *
     flex: 0 0 200px
-    margin-bottom: 30px
+    margin-top: 5px
+    margin-bottom: 5px
+    margin-right: 20px
 
 .folder
   //background: url('/assets/images/folder.svg') no-repeat 50% 50%

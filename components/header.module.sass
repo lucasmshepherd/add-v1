@@ -3,7 +3,7 @@
 .header
   display: block
 
-  &[data-connected="true"]
+  &[data-connected="truee"]
     .balance
       background-image: url('/assets/images/add-logo-highlight-01.svg')
     .icon
@@ -26,6 +26,8 @@
   transform: translateX(-50%)
   width: 255px
   height: 50px
+  @media(max-width: 700px)
+    left: 100%
 
 .tabg
   fill: transparentize(#050505, 0.5)
@@ -38,6 +40,8 @@
   align-content: stretch
   height: 80px
   padding: 0 10px
+  @media(max-width: 700px)
+    height: 68px
 
 .logo
   margin: 0
@@ -53,14 +57,15 @@
   width: 48px
   text-align: center
   transform: translate(-50%, -50%)
-  cursor: pointer
   span:nth-child(2) 
     display: none!important
-  .header[data-connected="true"] &
-    cursor: default
+  @media(max-width: 984px)
+    cursor: pointer
+  @media(max-width: 700px)
+    margin-left: -18%
 
 .balance
-  background: url('/assets/images/add-logo.svg') no-repeat 100% 50%
+  //background: url('/assets/images/add-logo.svg') no-repeat 100% 50%
   background-size: 18px
   display: inline-block
   font-family: $font_scifi
@@ -69,6 +74,14 @@
   cursor: pointer
   height: 44px
   line-height: 44px
-  padding-right: 24px
+  //padding-right: 24px
+  a
+    transition: 0.3s color
+  a:hover,
+  a:active
+    color: $color_3
   &[data-connected="true"]
     cursor: default
+
+  @media(max-width: 700px)
+    display: none

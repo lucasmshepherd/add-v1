@@ -36,7 +36,7 @@ export default function Header() {
         <Container>
           <div className={styles.addbar}>
             <h1 className={styles.logo}>
-            <Link href="./"><a>
+            <Link href="/"><a>
               <Image layout="fixed" src={Logo} priority="true" alt="Anarchist Development DAO" width="160" />
             </a></Link>
             </h1>

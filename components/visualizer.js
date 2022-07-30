@@ -1,9 +1,11 @@
-import React, { useCallback, useRef, useState, useEffect } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react"
 import styles from './visualizer.module.sass'
 
 
 export default function Visualizer() {
-  const AUDIO_SRC = "/assets/audio/delec.ogg";
+
+  const isFirefox = typeof InstallTrigger !== 'undefined';
+  const AUDIO_SRC = "/assets/audio/delec.mp3";
 
   const [audioFile, setAudioFile] = useState(null);
   const [audioIsLoading, setAudioIsLoading] = useState(true);
@@ -13,7 +15,7 @@ export default function Visualizer() {
   function handlePlay() {
     // if audio hasn't been started
     if (!audioAnimationFrame) {
-      handleAudioStart();
+      handleVisualizerStart();
     }
     // any time the play button is hit
     audioFile.play();
@@ -29,14 +31,18 @@ export default function Visualizer() {
     setAudioAnimationFrame(null);
   }
 
-  function handleAudioStart() {
+  function handleVisualizerStart() {
     // display settings
     let repeat_char = '/';
     const filler_char = '-';
     const char_across = 20;
 
     // get the stream from the audio file
-    const audioStream = audioFile.captureStream();
+    if(isFirefox){
+      var audioStream = audioFile.mozCaptureStream();
+    } else {
+      var audioStream = audioFile.captureStream();
+    }
     
     // forked web audio context
     let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -102,23 +108,29 @@ export default function Visualizer() {
   }, [audioFile])
 
   return (
-    <div id="visualizer" className={styles.visualizer}>
-      { !audioIsLoading &&
-        <div className="visualizer--click-target" style={{cursor: 'pointer'}}  onClick={ audioIsPlaying ? handlePause : handlePlay}>
-          <div className="visualizer---row-container">
-            {
-              [...Array(3),]
-              .map((value, index) => {
-                return (
-                  <div className='visualizer--row' key={index}>
-                    <span style={{ color:'#767676'}}>--------------------</span>
-                  </div>
-                )
-              })
-            }
+    <>
+      <div id="visualizer" className={styles.visualizer}>
+
+        { !audioIsLoading &&
+          <div className="visualizer--click-target" style={{cursor: 'pointer'}} onClick={ audioIsPlaying ? handlePause : handlePlay }>
+            <div className="visualizer---row-container">
+              {
+                [...Array(3),]
+                .map((value, index) => {
+                  return (
+                    <div className='visualizer--row' key={index}>
+                      <span style={{ color:'#767676'}}>--------------------</span>
+                    </div>
+                  )
+                })
+              }
+            </div>
           </div>
-        </div>
-      }
-    </div>
+        }
+      </div>
+      <div className={styles.onoff} onClick={ audioIsPlaying ? handlePause : handlePlay }>
+        {audioIsPlaying ? "[STOP MUSIC]" : "[PLAY MUSIC]" }
+      </div>
+    </>
   )
 }

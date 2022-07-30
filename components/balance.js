@@ -1,14 +1,14 @@
 import React from 'react'
+import Link from 'next/link'
 import { useSelector, useDispatch } from 'react-redux'
 import { loginUser } from '../store/users/action'
 import styles from './header.module.sass'
 
 export default function Balance() {
-  let balance = "Connect"
+  let balance = "DISCORD"
   const dispatch = useDispatch()
-  const connected = useSelector((state) => state.users.connected)
-
-  
+  //const connected = useSelector((state) => state.users.connected)
+  const connected = "false"
 
   function loginUserNow() {
     dispatch(loginUser());
@@ -20,8 +20,8 @@ export default function Balance() {
 
   return (
     <> 
-      <div data-connected={connected} onClick={loginUserNow} className={styles.balance}>
-        <span>{balance}</span>
+      <div data-connected={connected} className={styles.balance}>
+        <a href="https://discord.gg/BSaaz73pJD" rel="noreferrer" target="_blank"><span>{balance}</span></a>
       </div>
     </>
   )

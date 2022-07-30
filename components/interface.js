@@ -11,6 +11,7 @@ import News from './news.js'
 import Page from './page.js'
 import Static from './static.js'
 import EnterTransition from './enter-transition.js'
+import Screen from './screen.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
 //import styles from './interface.module.sass'
 
@@ -24,7 +25,15 @@ export default function Interface(props) {
   let layout = props.layout
   let widgets = props.widgets
 
-  if (widgets == "home") {
+  if (widgets == "intro") {
+    
+    return (
+      <> 
+        <div className="screenBg"></div>
+        <Screen />
+      </>
+    )
+  } else if (widgets == "home") {
     return (
       <> 
         <UserInterface layout={layout}>
@@ -35,20 +44,11 @@ export default function Interface(props) {
                 <Terminal />
               </Widget>
             </PaneRow>
-            <PaneRow name="secondary">
-              {/* Source */}
-              <Widget type="source" title="src_" icon="triangles">
-                <Source />
-              </Widget>
-              {/* Files */}
-              <Widget type="files" title="files_" icon="triangles">
-                <Files />
-              </Widget>
-            </PaneRow>
           </Pane>
           <Sidebar>
             {/* Menu */}
-            <PaneRow>
+            <PaneRow name="fill">
+              <span className="close-menu">close</span>
               <Widget type="menu" title="dir_nav_" icon="triangles">
                 <Directory widgets={widgets} />
               </Widget>
@@ -60,9 +60,9 @@ export default function Interface(props) {
               </Widget>
             </PaneRow>
             {/* Report */}
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
+            <PaneRow>
+              <Widget type="source" title="src_" icon="triangles">
+                <Source />
               </Widget>
             </PaneRow>
             {/* Social */}
@@ -77,54 +77,6 @@ export default function Interface(props) {
     )
   }
 
-  else if (widgets == "mint") {
-    return (
-      <> 
-        <UserInterface layout={layout}>
-          <Pane>
-            <PaneRow name="primary">
-              {/* Mint NFTs */}
-              <Widget type={widgets} title="anarchy_nft_t_1_" icon="triangles">
-                <MintNft tier="1" />
-              </Widget>
-              <Widget type={widgets} title="anarchy_nft_t_2_" icon="triangles">
-                <MintNft tier="2" />
-              </Widget>
-              <Widget type={widgets} title="anarchy_nft_t_3_" icon="triangles">
-                <MintNft tier="3" />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="secondary">
-              {/* Source */}
-              <Widget type="news" title="recent_news_" icon="triangles">
-                <News />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            {/* Menu */}
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={widgets} />
-              </Widget>
-            </PaneRow>
-            {/* Audio */}
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
-              </Widget>
-            </PaneRow>
-            {/* Report */}
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
 
   else if (widgets == "manifesto") {
     return (
@@ -133,14 +85,14 @@ export default function Interface(props) {
           <Pane>
             <PaneRow name="primary">
               {/* Mint NFTs */}
-              <Widget type={widgets} title="anarchy_nft_t_1_" icon="triangles">
+              <Widget type={widgets} title="manifesto_" icon="triangles">
                 <Page />
               </Widget>
             </PaneRow>
           </Pane>
           <Sidebar>
             {/* Menu */}
-            <PaneRow>
+            <PaneRow name="fill">
               <Widget type="menu" title="dir_nav_" icon="triangles">
                 <Directory widgets={widgets} />
               </Widget>
@@ -152,9 +104,9 @@ export default function Interface(props) {
               </Widget>
             </PaneRow>
             {/* Report */}
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
+            <PaneRow>
+              <Widget type="source" title="src_" icon="triangles">
+                <Source />
               </Widget>
             </PaneRow>
             {/* Social */}
@@ -177,8 +129,10 @@ export default function Interface(props) {
             <PaneRow name="primary">
               {/* Terminal */}
               <Widget type="video" title="welcome_" icon="triangles">
-              <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay muted>
-                <source src="/assets/video/placeholder.mp4" type="video/mp4"/>
+              <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay muted preload="auto">
+                <source src="/assets/video/freedom.mp4" type="video/mp4"/>
+                <source src="/assets/video/freedom.webm" type="video/webm"/>
+                <source src="/assets/video/freedom.ogg" type="video/ogg"/>
                 Your browser does not support the video tag.
               </video>
               </Widget>
@@ -192,7 +146,7 @@ export default function Interface(props) {
           </Pane>
           <Sidebar>
             {/* Menu */}
-            <PaneRow>
+            <PaneRow name="fill">
               <Widget type="menu" title="dir_nav_" icon="triangles">
                 <Directory widgets={widgets} />
               </Widget>
@@ -204,9 +158,9 @@ export default function Interface(props) {
               </Widget>
             </PaneRow>
             {/* Report */}
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
+            <PaneRow>
+              <Widget type="source" title="src_" icon="triangles">
+                <Source />
               </Widget>
             </PaneRow>
             {/* Social */}
@@ -221,90 +175,4 @@ export default function Interface(props) {
     )
   }
 
-  else if (widgets == "dapp") {
-    return (
-      <> 
-        <UserInterface layout={layout}>
-          <Pane>
-            <PaneRow name="primary">
-              {/* Mint NFTs */}
-              <Widget type={widgets} title="dapp_" icon="triangles">
-                <Chart data="add price" />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="secondary">
-              {/* Source */}
-              <Widget type="news" title="recent_news_" icon="triangles">
-                <News />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            {/* Menu */}
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={widgets} />
-              </Widget>
-            </PaneRow>
-            {/* Audio */}
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
-              </Widget>
-            </PaneRow>
-            {/* Report */}
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
-
-  else if (widgets == "enter") {
-    return (
-      <> 
-        <UserInterface layout={layout}>
-          <Pane>
-            <PaneRow name="primary">
-              {/* Mint NFTs */}
-              <Widget type={widgets} title="accessing_dapp_" icon="triangles">
-                <EnterTransition />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            {/* Menu */}
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-              <Directory widgets={widgets} />
-                <Static />
-              </Widget>
-            </PaneRow>
-            {/* Audio */}
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
-              </Widget>
-            </PaneRow>
-            {/* Report */}
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Static />
-              </Widget>
-            </PaneRow>
-            {/* Social */}
-            <PaneRow>
-              <Widget type="social" title="social_" icon="globe">
-                <Static />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
 }

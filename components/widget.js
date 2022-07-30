@@ -8,7 +8,7 @@ import Icon3 from '../public/assets/images/t_icon3.svg'
 import styles from './widget.module.sass'
 
 export default function Widget(props) {
-  const connected = useSelector((state) => state.users.connected);
+  const connected = "false"
   const type = props.type
   const label = props.title
   //const icon = props.icon
@@ -16,9 +16,9 @@ export default function Widget(props) {
 
   if (type == "source") {
     if (connected == "true") {
-      noticeText = "site unlocked"
+      noticeText = "let anarchy reign"
     } else {
-      noticeText = "please connect valid wallet"
+      noticeText = "let anarchy reign"
     }
   }
 

@@ -7,7 +7,7 @@ export default function Footer() {
     <>
       <footer className={styles.footer}>
         <Container>
-          {/*--©--*/}
+          <span className="glitchee">LET ANARCHY REIGN</span>
         </Container>
       </footer>
     </>

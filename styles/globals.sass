@@ -39,6 +39,22 @@ body
   background-size: cover
   color: $color_light
 
+  &.screener
+    background: rgba(16,16,16,1)
+
+.screenBg
+  display: block
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(16,16,16,.9) url('/assets/video/hoodie-pic.jpg') no-repeat 65% 50%
+  background-size: cover
+  position: fixed
+  z-index: -999
+  opacity: .1
+
+
 .monitor-effect-overlayy
   position: fixed
   top: 0
@@ -96,19 +112,8 @@ button.switcher-item
   100%
     background-size: 100% 4px
 
-canvas#canvas2
+.canvas2
   position: fixed
-  display: block
-  width: 100%
-  height: 100%
-  top: 0
-  left: 0
-  bottom: 0
-  right: 0
-  z-index: -11
-
-canvas#canvas3
-  position: absolute
   display: block
   width: 100%
   height: 100%
@@ -131,3 +136,87 @@ canvas#canvas3
 
 .invisible
   opacity: 0
+
+article[class^="widget_"]
+  header
+    div[class*="indicator_"]
+      transition: all 0.3s
+  &:hover
+    header
+      div[class*="indicator_"]
+        background: $color_3
+        box-shadow: $glow_box
+
+@media(min-width: 985px)
+  .close-menu
+    display: none
+@media(max-width: 984px)
+  aside.open
+    right: 0!important
+    box-shadow: 0 -100px 150px rgba(0,0,0,1)
+
+  aside
+    padding-top: 25px
+
+.close-menu
+  position: absolute
+  top: 10px
+  right: 15px
+  font-family: $font_scifi
+  text-transform: uppercase
+  font-size: 12px
+  cursor: pointer
+
+[class^="header_logo_"]
+  a
+    span:nth-child(2)
+      display: none
+
+body.screener a.header_icon__Ss1uo
+  cursor: pointer
+
+@mixin glitchCopy  
+  content: attr(data-text)
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+.glitchme 
+  position: relative
+
+  &:before
+    opacity: .5
+    @include glitchCopy
+    left: 1px
+    text-shadow: -2px 0 #ff00c1
+    clip: rect(44px, 450px, 56px, 0)
+    animation: glitch-anim 5s infinite linear alternate-reverse
+
+  &:after 
+    opacity: .5
+    @include glitchCopy
+    left: -1px
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1
+    animation: glitch-anim2 1s infinite linear alternate-reverse
+
+@keyframes glitch-anim 
+  $steps: 20
+  @for $i from 0 through $steps 
+    #{percentage($i*(1/$steps))} 
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0)
+      transform: skew((random(100) / 100) + deg)
+
+@keyframes glitch-anim2 
+  $steps: 20
+  @for $i from 0 through $steps 
+    #{percentage($i*(1/$steps))} 
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0)
+      transform: skew((random(100) / 100) + deg)
+
+@keyframes glitch-skew 
+  $steps: 10
+  @for $i from 0 through $steps 
+    #{percentage($i*(1/$steps))} 
+      transform: skew((random(10) - 5) + deg)
