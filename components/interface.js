@@ -129,7 +129,7 @@ export default function Interface(props) {
             <PaneRow name="primary">
               {/* Terminal */}
               <Widget type="video" title="welcome_" icon="triangles">
-              <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay muted preload="auto">
+              <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
                 <source src="/assets/video/freedom.mp4" type="video/mp4"/>
                 <source src="/assets/video/freedom.webm" type="video/webm"/>
                 <source src="/assets/video/freedom.ogg" type="video/ogg"/>
@@ -137,27 +137,28 @@ export default function Interface(props) {
               </video>
               </Widget>
             </PaneRow>
-            <PaneRow name="secondary">
+
+          </Pane>
+          <Sidebar>
+            {/* Menu */}
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={widgets} />
+              </Widget>
+            </PaneRow>
+            <PaneRow name="fill">
               {/* Files */}
               <Widget type="files" title="files_" icon="triangles">
                 <Files />
               </Widget>
             </PaneRow>
-          </Pane>
-          <Sidebar>
-            {/* Menu */}
-            <PaneRow name="fill">
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={widgets} />
-              </Widget>
-            </PaneRow>
-            {/* Audio */}
+            {/* Audio 
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
               </Widget>
             </PaneRow>
-            {/* Report */}
+             Report */}
             <PaneRow>
               <Widget type="source" title="src_" icon="triangles">
                 <Source />

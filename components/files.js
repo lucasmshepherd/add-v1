@@ -30,13 +30,6 @@ export default function Files() {
           </Link>
           <div className={styles.flabel}>fr33d0m.ogg</div>
         </div>
-        <div className={styles.folder}>
-          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <div className={styles.fcontent}>
-            <p>Coming ??? </p>
-            <span>???</span>
-          </div>
-        </div>
       </div>
     </>
   )
