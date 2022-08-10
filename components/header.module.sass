@@ -54,15 +54,41 @@
   position: absolute
   left: 50%
   top: 50%
-  width: 48px
   text-align: center
   transform: translate(-50%, -50%)
+  &:before,
+  &:after
+    position: absolute
+    top: 50%
+    margin-top: -8px
+    font-size: 10px
+    line-height: 1
+    font-family: $font_scifi
+  &:before
+    content: "0928"
+    right: 115%
+  &:after
+    content: "2022"
+    left: 115%
+  svg
+    width: 48px
+    height: 48px
   span:nth-child(2) 
     display: none!important
   @media(max-width: 984px)
-    cursor: pointer
+    //cursor: pointer
   @media(max-width: 700px)
     margin-left: -18%
+    &:before
+      right: 115%
+      margin-top: -10px
+      top: 40%
+    &:after
+      top: 40%
+      left: auto
+      right: 115%
+      margin-top: 0px
+    
 
 .balance
   //background: url('/assets/images/add-logo.svg') no-repeat 100% 50%

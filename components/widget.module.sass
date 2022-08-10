@@ -11,6 +11,24 @@
   align-items: stretch
   align-content: stretch
   margin: 10px
+  //color: $color_5
+  &[data-widget="intro"]
+    //color: #fff
+    footer
+      display: none
+  &[data-widget="audio"]
+    footer
+      display: none
+  &[data-widget="terminal"]
+    @media(max-width: 1000px)
+      [data-row="secondary"]
+        display: none
+
+  &[data-widget="manifesto"]
+    border-color: $color_1
+    header,
+    footer
+      display: none
   &[data-valid="true"]
     .noticet
       color: $color_3
@@ -39,6 +57,7 @@
   background: $widget_title
   font-size: $font_size_ui_title_bar
   letter-spacing: .12em
+  color:  $color_2
 
 .foot
   flex: 0 0 24px
@@ -52,6 +71,9 @@
   background: rgba(255,255,255, .05)
   font-size: 7px
   letter-spacing: .12em
+  color:  rgba(255,255,255,.2)
+  svg
+    opacity: .2
 
 .icon
   width: 22px
@@ -99,6 +121,12 @@
     background: url('/assets/images/nftbg.jpg') no-repeat 50% 50%
     background-size: cover
 
+  &[data-feed="files"]
+    min-height: 160px
+    .scroll
+      position: absolute
+      top: 0
+      left: 0
   &[data-feed="social"]
     overflow: hidden
     background: url('/assets/images/flatgridbg.jpg') no-repeat 50% 50%
@@ -127,6 +155,16 @@
       position: absolute
       top: 0
       left: 0
+  &[data-feed="intro"]
+    //background-color: $color_3
+    //background-blend-mode: multiply
+    //background-image: url('/assets/images/hoodie-guy-dark-bg.jpg')
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    background-size: cover
+    p
+      margin: 0
+
   &[data-feed="audio"]
     .scroll
       padding-top: 20px
@@ -143,6 +181,9 @@
     .scroll
       padding: 0
   &[data-feed="terminal"]
+    color: $color_5
+    //font-family: $font_content
+    //font-size: 12px
     .scroll
       position: absolute
       bottom: 0
@@ -152,7 +193,8 @@
       justify-content: flex-end
       align-items: flex-start
       align-content: stretch
-  
+      padding-bottom: 15px
+
   &[data-feed="source"]
     .scroll
       padding: 0
@@ -193,20 +235,30 @@
 .files
   display: flex
   flex-flow: row wrap
-  justify-content: space-evenly
+  justify-content: flex-start
   align-items: stretch
   align-content: stretch
 
   & > *
-    flex: 0 0 200px
+    flex: 1 0 200px
     margin: 10px
+    max-width: 320px
+
+.fthumb
+  position: absolute
+  width: 80%
+  height: 80%
+  top: 10%
+  left: 5%
+  background-size: 100% 100%!important
 
 .folder
   //background: url('/assets/images/folder.svg') no-repeat 50% 50%
   //background-size: 100% 100%
   position: relative
-  font-size: $font_size_mono_sm * .8
+  font-size: $font_size_mono_sm * .7
   text-align: center
+  letter-spacing: 0.1em
   cursor: pointer
 
   &[data-connected="false"][data-video="live"]
@@ -248,3 +300,29 @@
 
 .connect
   color: $color_3!important
+
+.introduction
+  color: $color_5
+  padding: 30px
+  font-size: 1.5em
+  text-shadow: 1px 0px 5px #888, -1px 0px 2px #888
+  font-family: $font_mono
+  line-height: 1
+  //text-align: center
+  filter: blur(0.5px)
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 100%
+  max-width: 660px
+
+  @media(max-width: 800px)
+    font-size: 1em
+    max-width: 500px
+    text-align: center
+
+  @media(max-width: 600px)
+    font-size: .6em
+    max-width: 420px
+    text-align: center

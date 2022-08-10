@@ -43,7 +43,7 @@ export default function Page(props) {
         
         <blockquote><big>We believe that there is a path forward. It requires us ALL to cause a little bit of anarchy. We must be vigilant in our mission; we must trust the process.<br/><br/>Join our DAO. We would love to hear from you.</big></blockquote>
         
-        <a className="glitchme"data-text="// Let anarchy reign \\" href="#">/ Let anarchy reign \</a>
+        <a className="glitchme"data-text="// learn more \\" href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">/ learn more \</a>
       </div>
     </>
   )

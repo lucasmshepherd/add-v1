@@ -9,7 +9,7 @@ export default class Terminal extends React.Component {
 
     var cursor = $('#cursor');
     var terminal = $('#terminal');
-    var text = ["Anarchy Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/><br/>type <a class='onclick-help'>help</a> for commands<br/>$> ", ""];
+    var text = ["line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/><br/>type <a class='onclick' onclick='helpConsole()'>HELP</a> for commands<br/>$> ", ""];
     var commandHistory = [];
     var lineY = 1;
     var index = 0;
@@ -29,38 +29,39 @@ export default class Terminal extends React.Component {
 
     var commands = [
         { name: "clear", function: clearConsole },
-        { name: "play", function: playConsole },
-        { name: "start", function: startConsole },
-        { name: "help", function: helpConsole }
+        { name: "reset", function: resetConsole },
+        { name: "help", function: helpConsole },
+        { name: "freedom", function: freedomConsole },
+        { name: "anarchy", function: manifestoConsole }
     ]
 
-    $('.onclick-help').on("mousedown", function() {
-        lineY++;
-        text[lineY] = ["\nclear  Clear console text.\nplay   Play freedom video.\nstart  Start anarchist manifesto."];
-        printConsole(text);
-    });
-    
     function helpConsole() {
         lineY++;
-        text[lineY] = ["\nclear  Clear console text.\nplay   Play freedom video.\nstart  Start anarchist manifesto."];
+        text[lineY] = ["\nclear/reset       CLEAR or RESET the terminal\nfreedom          Play FREEDOM video\nanarchy          Navigate to anarchist MANIFESTO"];
         printConsole(text);
     }
-
-    function delayText() {
-        terminal.html("Helllo");
-    }
     
-    function startConsole() {
+    function manifestoConsole() {
         Router.push('/manifesto');
     }    
     
-    function playConsole() {
+    function freedomConsole() {
+        lineY++;
+        text[lineY] = ["\no."];
+        printConsole(text);
         Router.push('/freedom');
     }
     
     function clearConsole() {
         text = [];
         lineY = 0;
+    }
+    
+    function resetConsole() {
+        clearConsole();
+        lineY++;
+        text[lineY] = ["Anarchy Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/>type <a class='onclick-help' onclick='helpConsole()'>HELP</a> for commands"];
+        printConsole(text);
     }
 
     setInterval(function () {

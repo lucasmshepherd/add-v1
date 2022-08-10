@@ -14,6 +14,11 @@ export default function Widget(props) {
   //const icon = props.icon
   let noticeText = ""
 
+  /*function scrollit() {
+    var myDiv = document.getElementById("myDiv");
+    myDiv.scrollTop = myDiv.scrollHeight;
+  }*/
+
   if (type == "source") {
     if (connected == "true") {
       noticeText = "let anarchy reign"

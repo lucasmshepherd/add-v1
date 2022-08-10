@@ -7,7 +7,7 @@ export default function Footer() {
     <>
       <footer className={styles.footer}>
         <Container>
-          <span>LET ANARCHY REIGN &apos;22</span>
+          {/*<span>LET ANARCHY REIGN &apos;22</span>*/}
         </Container>
       </footer>
     </>

@@ -9,9 +9,10 @@ import Visualizer from './visualizer.js'
 import MintNft from './mint-nft.js'
 import News from './news.js'
 import Page from './page.js'
-import Static from './static.js'
-import EnterTransition from './enter-transition.js'
+//import Static from './static.js'
+//import EnterTransition from './enter-transition.js'
 import Screen from './screen.js'
+import Introduction from './introduction.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
 //import styles from './interface.module.sass'
 
@@ -40,23 +41,29 @@ export default function Interface(props) {
           <Pane>
             <PaneRow name="primary">
               {/* Terminal */}
-              <Widget type="terminal" title="welcome_" icon="triangles">
+              <Widget type="intro" title="welcome_" icon="triangles">
+                <Introduction />
+              </Widget>
+            </PaneRow>
+            <PaneRow name="secondary">
+              {/* Terminal */}
+              <Widget type="terminal" title="terminal_" icon="triangles">
                 <Terminal />
               </Widget>
             </PaneRow>
           </Pane>
           <Sidebar>
+              {/* Audio */}
+            <PaneRow name="small">
+              <Widget type="audio" title="freq_v_" icon="arc">
+                <Visualizer />
+              </Widget>
+            </PaneRow>
             {/* Menu */}
             <PaneRow name="fill">
               <span className="close-menu">close</span>
               <Widget type="menu" title="dir_nav_" icon="triangles">
                 <Directory widgets={widgets} />
-              </Widget>
-            </PaneRow>
-            {/* Audio */}
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
               </Widget>
             </PaneRow>
             {/* Report */}
@@ -91,16 +98,60 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
+            {/* Audio */}
+            <PaneRow name="small">
+              <Widget type="audio" title="freq_v_" icon="arc">
+                <Visualizer />
+              </Widget>
+            </PaneRow>
             {/* Menu */}
             <PaneRow name="fill">
               <Widget type="menu" title="dir_nav_" icon="triangles">
                 <Directory widgets={widgets} />
               </Widget>
             </PaneRow>
+            {/* Report */}
+            <PaneRow>
+              <Widget type="source" title="src_" icon="triangles">
+                <Source />
+              </Widget>
+            </PaneRow>
+            {/* Social */}
+            <PaneRow>
+              <Widget type="social" title="social_" icon="globe">
+                <Social />
+              </Widget>
+            </PaneRow>
+          </Sidebar>
+        </UserInterface>
+      </>
+    )
+  }
+
+  else if (widgets == "tv") {
+    return (
+      <> 
+        <UserInterface layout={layout}>
+          <Pane>
+            <PaneRow name="primary">
+              {/* Files */}
+              <Widget type="files" title="files_" icon="triangles">
+                <Files />
+              </Widget>
+            </PaneRow>
+
+          </Pane>
+          <Sidebar>
             {/* Audio */}
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            {/* Menu */}
+            <PaneRow name="fill">
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={widgets} />
               </Widget>
             </PaneRow>
             {/* Report */}
@@ -152,13 +203,7 @@ export default function Interface(props) {
                 <Files />
               </Widget>
             </PaneRow>
-            {/* Audio 
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
-              </Widget>
-            </PaneRow>
-             Report */}
+            {/* Report */}
             <PaneRow>
               <Widget type="source" title="src_" icon="triangles">
                 <Source />

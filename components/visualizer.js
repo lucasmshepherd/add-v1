@@ -129,7 +129,7 @@ export default function Visualizer() {
         }
       </div>
       <div className={styles.onoff} onClick={ audioIsPlaying ? handlePause : handlePlay }>
-        {audioIsPlaying ? "[STOP MUSIC]" : "[PLAY MUSIC]" }
+        {audioIsPlaying ? "[stop music]" : "[play music]" }
       </div>
     </>
   )
