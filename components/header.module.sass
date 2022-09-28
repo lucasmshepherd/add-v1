@@ -64,12 +64,6 @@
     font-size: 10px
     line-height: 1
     font-family: $font_scifi
-  &:before
-    content: "0928"
-    right: 115%
-  &:after
-    content: "2022"
-    left: 115%
   svg
     width: 48px
     height: 48px
@@ -80,10 +74,12 @@
   @media(max-width: 700px)
     margin-left: -18%
     &:before
+      content: "OPEN"
       right: 115%
       margin-top: -10px
       top: 40%
     &:after
+      content: "MENU"
       top: 40%
       left: auto
       right: 115%

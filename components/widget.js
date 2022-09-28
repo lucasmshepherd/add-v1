@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Icon1 from '../public/assets/images/t_icon.svg'
 import Icon2 from '../public/assets/images/t_icon2.svg'
 import Icon3 from '../public/assets/images/t_icon3.svg'
+import Icon4 from '../public/assets/images/t_icon4.svg'
 
 import styles from './widget.module.sass'
 
@@ -11,7 +12,7 @@ export default function Widget(props) {
   const connected = "false"
   const type = props.type
   const label = props.title
-  //const icon = props.icon
+  var icon = props.icon
   let noticeText = ""
 
   /*function scrollit() {
@@ -27,13 +28,21 @@ export default function Widget(props) {
     }
   }
 
+  if (icon == "triangles") {
+    icon = Icon1;
+  } else if (icon == "globe") {
+    icon = Icon4;
+  } else if (icon == "arc") {
+    icon = Icon2;
+  }
+
   return (
     <>
       <article className={styles.widget} data-widget={type} data-valid={connected}>
         <span className={styles.noticet}>{noticeText}</span>
         <header className={styles.title}>
           <span className={styles.icon}>
-            <Image layout="fixed" src={Icon1} priority="true" alt="ADD" width="22" height="22" />
+            <Image layout="fixed" src={icon} priority="true" alt="ADD" width="22" height="22" />
           </span>
           <span className={styles.label}>
             {label}

@@ -13,10 +13,11 @@
   margin: 10px
   //color: $color_5
   &[data-widget="intro"]
+    background: none
     //color: #fff
     footer
       display: none
-  &[data-widget="audio"]
+  &[data-widget="menu"]
     footer
       display: none
   &[data-widget="terminal"]
@@ -25,7 +26,9 @@
         display: none
 
   &[data-widget="manifesto"]
+    color: $color_5
     border-color: $color_1
+    border: 0
     header,
     footer
       display: none
@@ -181,7 +184,7 @@
     .scroll
       padding: 0
   &[data-feed="terminal"]
-    color: $color_5
+    //color: $color_5
     //font-family: $font_content
     //font-size: 12px
     .scroll
@@ -302,27 +305,31 @@
   color: $color_3!important
 
 .introduction
-  color: $color_5
+  //color: $color_5
   padding: 30px
   font-size: 1.5em
   text-shadow: 1px 0px 5px #888, -1px 0px 2px #888
   font-family: $font_mono
   line-height: 1
-  //text-align: center
+  text-align: center
   filter: blur(0.5px)
   position: absolute
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
   width: 100%
-  max-width: 660px
+  max-width: 680px
 
   @media(max-width: 800px)
     font-size: 1em
-    max-width: 500px
+    max-width: 520px
     text-align: center
 
   @media(max-width: 600px)
     font-size: .6em
     max-width: 420px
     text-align: center
+
+.videobg
+  opacity: .8
+  filter: grayscale(1)

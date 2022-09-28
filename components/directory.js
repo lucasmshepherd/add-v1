@@ -30,14 +30,14 @@ export default function Directory(props) {
                 <a>{folder}<span>root</span>{arrow}</a>
             </Link>
           </li>
-          <li data-connected="true" data-current={ widgets == "tv" ? 'true' : 'false' }>
-            <Link className="anchor" href="/tv">
-              <a>{lock}<span>anarchist_tv</span>{arrow}</a>
-            </Link>
-          </li>
           <li data-connected="true" data-current={ widgets == "manifesto" ? 'true' : 'false' }>
             <Link className="anchor" href="/manifesto">
               <a>{lock}<span>manifesto</span>{arrow}</a>
+            </Link>
+          </li>
+          <li data-connected="true" data-current={ widgets == "tv" ? 'true' : 'false' }>
+            <Link className="anchor" href="/tv">
+              <a>{lock}<span>anarchist_tv</span>{arrow}</a>
             </Link>
           </li>
           <li><a href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank"><span>faq.gitbook</span></a></li>

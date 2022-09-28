@@ -41,13 +41,13 @@ export default function Interface(props) {
           <Pane>
             <PaneRow name="primary">
               {/* Terminal */}
-              <Widget type="intro" title="welcome_" icon="triangles">
+              <Widget type="intro" title="welcome_" icon="globe">
                 <Introduction />
               </Widget>
             </PaneRow>
             <PaneRow name="secondary">
               {/* Terminal */}
-              <Widget type="terminal" title="terminal_" icon="triangles">
+              <Widget type="terminal" title="terminal_" icon="arc">
                 <Terminal />
               </Widget>
             </PaneRow>
@@ -55,7 +55,7 @@ export default function Interface(props) {
           <Sidebar>
               {/* Audio */}
             <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
+              <Widget type="audio" title="freq_v_" icon="triangles">
                 <Visualizer />
               </Widget>
             </PaneRow>
@@ -74,7 +74,7 @@ export default function Interface(props) {
             </PaneRow>
             {/* Social */}
             <PaneRow>
-              <Widget type="social" title="social_" icon="globe">
+              <Widget type="social" title="social_" icon="triangles">
                 <Social />
               </Widget>
             </PaneRow>

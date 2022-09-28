@@ -31,7 +31,7 @@ export default function Page(props) {
           
           <p><b>All the while, the rich got richer.</b></p>
 
-          <blockquote>Billionaires got <span>54% richer</span> during pandemic, sparking calls for &apos;wealth tax&apos;<hr/>The world&apos;s 2,365 billionaires enjoyed a <span>$4 trillion</span> boost to their fortunes the past 12 months, even as poverty surged.</blockquote>
+          <blockquote>Billionaires got <span>54% richer</span> during pandemic, sparking calls for &apos;wealth tax&apos;.<hr/>The world&apos;s <i>2,365 billionaires</i> enjoyed a <span>$4 trillion</span> boost to their fortunes the past 12 months, even as poverty surged.</blockquote>
         </div>
       </div>
       <div className={styles.manifoot}>
@@ -41,7 +41,7 @@ export default function Page(props) {
 
         <p>Let us rise above the financial norms and standards set since childhood and break free from the chains of fiat currency. This movement is worldwide; we can shape our future for the betterment of society.</p>
         
-        <blockquote><big>We believe that there is a path forward. It requires us ALL to cause a little bit of anarchy. We must be vigilant in our mission; we must trust the process.<br/><br/>Join our DAO. We would love to hear from you.</big></blockquote>
+        <blockquote>We believe that there is a path forward. It requires us ALL to cause a little bit of anarchy. We must be vigilant in our mission; we must trust the process.<br/><br/>Join our DAO. We would love to hear from you.</blockquote>
         
         <a className="glitchme"data-text="// learn more \\" href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">/ learn more \</a>
       </div>

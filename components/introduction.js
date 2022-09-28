@@ -8,9 +8,9 @@ export default class Introduction extends React.Component {
   componentDidMount () {
 
     const MESSAGES = [];
-    MESSAGES.push({delay:0,    text:"Geared toward the advancement of a more"});
-    MESSAGES.push({delay:1200, text:"decentralized society and provide the"});
-    MESSAGES.push({delay:2200, text:"means to fund projects without censorship"});
+    MESSAGES.push({delay:0,    text:"Our DAO is geared toward the advancement"});
+    MESSAGES.push({delay:1200, text:"of a more decentralized society and provide"});
+    MESSAGES.push({delay:2200, text:"the means to fund projects without censorship"});
     MESSAGES.push({delay:3600, text:"from central authorities."});
     //MESSAGES.push({delay:5200, text:"from central authorities."});
 
@@ -143,6 +143,12 @@ export default class Introduction extends React.Component {
   render () {
     return (
       <>
+          <video className={styles.videobg} style={{ width: '100%', height: '100%', top: '0', left: '0', position: 'absolute', zIndex: '-1', objectFit: 'cover' }} autoPlay muted loop preload="auto">
+            <source src="/assets/video/bg-video2-opt2.mp4" type="video/mp4"/>
+            <source src="/assets/video/bg-video2-opt2.webm" type="video/webm"/>
+            <source src="/assets/video/bg-video2-opt2.ogg" type="video/ogg"/>
+            Your browser does not support the video tag.
+          </video>
           <div id="introductionWrapper">
             <div id="glitch-bg"></div>
             <div className={styles.introduction} id="introduction">

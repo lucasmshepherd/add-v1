@@ -6,6 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
         <canvas id="canvas" className="canvas2" style={{display: "none"}}></canvas>
