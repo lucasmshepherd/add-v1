@@ -40,7 +40,7 @@ export default function Directory(props) {
               <a>{lock}<span>anarchist_tv</span>{arrow}</a>
             </Link>
           </li>
-          <li><a href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank"><span>faq.gitbook</span></a></li>
+          {/*<li><a href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank"><span>faq.gitbook</span></a></li>*/}
         </ul>
       </>
     )

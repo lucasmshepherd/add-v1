@@ -21,7 +21,7 @@ export default function Balance() {
   return (
     <> 
       <div data-connected={connected} className={styles.balance}>
-        <a href="https://discord.gg/BSaaz73pJD" rel="noreferrer" target="_blank"><span>{balance}</span></a>
+        <a href="https://discord.gg/anarchist-development-dao" rel="noreferrer" target="_blank"><span>{balance}</span></a>
       </div>
     </>
   )
